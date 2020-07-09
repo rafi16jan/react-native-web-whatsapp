@@ -6,7 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,7 +22,11 @@
       "favicon": "./assets/favicon.png"
     },
     "android": {
-      "package": "com.rapyd.whatsweb"
+      "package": "com.rapyd.whatsweb",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon_foreground.png",
+        "backgroundColor": "#25d168"
+      }
     }
   }
 }
