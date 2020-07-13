@@ -19,6 +19,7 @@ HTMLElement.prototype.click = function () {
   }
   else return original_html_click.bind(this)();
 }
+document.head.insertAdjacentHTML('beforeend', '<style>a[href] {pointer-events: none}</style>');
 `;
 
 const download = async (file) => !(await FileSystem.writeAsStringAsync(FileSystem.cacheDirectory + file.name, file.data.split(';base64,')[1], {encoding: FileSystem.EncodingType.Base64})) && (await MediaLibrary.requestPermissionsAsync()) && !(await MediaLibrary.saveToLibraryAsync(FileSystem.cacheDirectory + file.name,)) && ToastAndroid.show('File Downloaded in DCIM', ToastAndroid.LONG); //{mimeType: file.data.split(';base64,')[0].split('data:')[1]});
