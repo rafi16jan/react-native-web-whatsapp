@@ -37,7 +37,7 @@ fetch('/').then(function (response) {
 </html>
 `;*/
 
-const download = Platform.OS === 'android' ? async (file) => !(await FileSystem.writeAsStringAsync(FileSystem.cacheDirectory + file.name, file.data.split(';base64,')[1], {encoding: FileSystem.EncodingType.Base64})) && (await MediaLibrary.requestPermissionsAsync()) && !(await MediaLibrary.saveToLibraryAsync(FileSystem.cacheDirectory + file.name,)) && ToastAndroid.show('File Downloaded in DCIM', ToastAndroid.LONG) : () => Linking.openURL('https://solu.js.org/hash-downloader.html#' + file.data);
+const download = Platform.OS === 'android' ? async (file) => !(await FileSystem.writeAsStringAsync(FileSystem.cacheDirectory + file.name, file.data.split(';base64,')[1], {encoding: FileSystem.EncodingType.Base64})) && (await MediaLibrary.requestPermissionsAsync()) && !(await MediaLibrary.saveToLibraryAsync(FileSystem.cacheDirectory + file.name,)) && ToastAndroid.show('File Downloaded in DCIM', ToastAndroid.LONG) : (file) => Linking.openURL('https://solu.js.org/hash-downloader.html#' + file.data);
 
 const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36';
 
